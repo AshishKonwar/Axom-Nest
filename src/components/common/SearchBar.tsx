@@ -31,51 +31,53 @@ export function SearchBar({
   return (
     <form onSubmit={handleSearch} className={`relative ${className}`}>
       <motion.div
-        className={`flex items-center bg-white rounded-2xl shadow-glass border border-white/60 overflow-hidden ${
-          large ? "gap-0" : "gap-2 p-2"
-        }`}
+        className={`
+          flex flex-col md:flex-row
+          items-stretch md:items-center
+          bg-white rounded-2xl
+          shadow-glass border border-white/60
+          overflow-hidden w-full
+        `}
       >
-        {large ? (
-          <>
-            <div className="flex items-center gap-3 flex-1 px-5 py-4">
-              <Search className="w-5 h-5 text-primary shrink-0" />
+  {large ? (
+    <>
+      <div className="flex items-center gap-3 flex-1 px-5 py-4 min-w-0">
+        <Search className="w-5 h-5 text-primary shrink-0" />
 
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by locality, landmark, PG name..."
-                className="flex-1 text-slate-800 placeholder:text-slate-400 bg-transparent outline-none text-base"
-              />
-            </div>
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search by locality, landmark, PG name..."
+          className="
+            flex-1 min-w-0
+            text-slate-800
+            placeholder:text-slate-400
+            bg-transparent
+            outline-none
+            text-base
+          "
+        />
+      </div>
 
-            <div className="px-3 py-2">
-              <Button
-                type="submit"
-                size="lg"
-                className="rounded-xl"
-              >
-                <Search className="w-4 h-4" />
-                Search PGs
-              </Button>
-            </div>
-          </>
-        ) : (
-          <>
-            <Search className="w-4 h-4 text-slate-400 ml-2 shrink-0" />
-
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search city or locality..."
-              className="flex-1 text-slate-700 placeholder:text-slate-400 bg-transparent outline-none text-sm py-1"
-            />
-
-            <Button type="submit" size="sm">
-              Search
-            </Button>
-          </>
-        )}
-      </motion.div>
+      <div className="p-2 md:pr-2">
+        <Button
+          type="submit"
+          size="lg"
+          className="
+            rounded-xl
+            w-full md:w-auto
+            h-14
+            px-8
+            flex items-center justify-center
+          "
+        >
+          <Search className="w-4 h-4" />
+          Search PGs
+        </Button>
+      </div>
+    </>
+  ) : null}
+</motion.div>
     </form>
   );
 }

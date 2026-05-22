@@ -39,7 +39,7 @@ export function Navbar() {
             </div>
             <div className="leading-tight">
               <span className="font-bold text-xl text-slate-900 tracking-tight block">
-                Axom<span className="text-primary">Nest</span>
+                Axom<span className="text-[#d4af37]">Nest</span>
               </span>
             </div>
           </Link>
@@ -54,7 +54,7 @@ export function Navbar() {
                   `px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-primary text-white shadow-sm"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                      : "text-[#d4af37] hover:text-[#c19b2e] hover:bg-[#d4af37]/10"
                   }`
                 }
               >
@@ -65,7 +65,7 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" size="icon" onClick={() => navigate("/favorites")} title="Favorites">
-              <Heart className="w-4.5 h-4.5" />
+              <Heart className="w-4.5 h-4.5 text-[#d4af37]" />
             </Button>
             <Button variant="secondary" size="sm" onClick={() => navigate("/login")}>
               Log in
